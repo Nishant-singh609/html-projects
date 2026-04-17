@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato - Order Your Favourite Food</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: #e63946;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Main content styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .intro h2 {
+            color: #e63946;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .intro p {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #e63946;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button:hover {
+            background-color: #d62839;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        /* Menu section styles */
+        .menu-section {
+            margin-top: 3rem;
+        }
+        
+        .menu-section h2 {
+            text-align: center;
+            color: #e63946;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .category-btn {
+            background-color: white;
+            border: 2px solid #e63946;
+            color: #e63946;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background-color: #e63946;
+            color: white;
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .menu-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .item-image {
+            height: 200px;
+            background-color: #f1faee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e63946;
+            font-weight: bold;
+        }
+        
+        .item-details {
+            padding: 1.5rem;
+        }
+        
+        .item-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .item-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .item-price {
+            font-weight: bold;
+            color: #e63946;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .menu-items {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Tomato</div>
+        <div class="tagline">Order your favourite food here</div>
+    </header>
+    
+    <main class="container">
+        <section class="intro">
+            <h2>Choose from our delicious menu</h2>
+            <p>Select from our carefully crafted menu to satisfy your cravings. We offer a variety of dishes made with fresh ingredients and authentic flavors.</p>
+            <a href="#menu" class="cta-button">View Menu</a>
+        </section>
+        
+        <section class="menu-section" id="menu">
+            <h2>Explore our menu</h2>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">All Items</button>
+                <button class="category-btn" data-category="appetizers">Appetizers</button>
+                <button class="category-btn" data-category="mains">Main Courses</button>
+                <button class="category-btn" data-category="desserts">Desserts</button>
+                <button class="category-btn" data-category="drinks">Drinks</button>
+            </div>
+            
+            <div class="menu-items">
+                <div class="menu-item" data-category="appetizers">
+                    <div class="item-image">Garlic Bread</div>
+                    <div class="item-details">
+                        <h3 class="item-name">Garlic Bread</h3>
+                        <p class="item-description">Freshly baked bread with garlic butter and herbs</p>
+                        <div class="item-price">$5.99</div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="appetizers">
+                    <div class="item-image">Bruschetta</div>
+                    <div class="item-details">
+                        <h3 class="item-name">Bruschetta</h3>
+                        <p class="item-description">Toasted bread topped with tomatoes, garlic, and basil</p>
+                        <div class="item-price">$7.99</div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="mains">
+                    <div class="item-image">Margherita Pizza</div>
+                    <div class="item-details">
+                        <h3 class="item-name">Margherita Pizza</h3>
+                        <p class="item-description">Classic pizza with tomato sauce, mozzarella, and basil</p>
+                        <div class="item-price">$12.99</div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="mains">
+                    <div class="item-image">Spaghetti Carbonara</div>
+                    <div class="item-details">
+                        <h3 class="item-name">Spaghetti Carbonara</h3>
+                        <p class="item-description">Pasta with eggs, cheese, pancetta, and black pepper</p>
+                        <div class="item-price">$14.99</div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="mains">
+                    <div class="item-image">Grilled Salmon</div>
+                    <div class="item-details">
+                        <h3 class="item-name">Grilled Salmon</h3>
+                        <p class="item-description">Fresh salmon fillet with lemon butter sauce</p>
+                        <div class="item-price">$18.99</div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="desserts">
+                    <div class="item-image">Tiramisu</div>
+                    <div class="item-details">
+                        <h3 class="item-name">Tiramisu</h3>
+                        <p class="item-description">Classic Italian dessert with coffee-soaked ladyfingers</p>
+                        <div class="item-price">$7.99</div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="desserts">
+                    <div class="item-image">Chocolate Lava Cake</div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chocolate Lava Cake</h3>
+                        <p class="item-description">Warm chocolate cake with a molten center</p>
+                        <div class="item-price">$8.99</div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="drinks">
+                    <div class="item-image">Fresh Lemonade</div>
+                    <div class="item-details">
+                        <h3 class="item-name">Fresh Lemonade</h3>
+                        <p class="item-description">Homemade lemonade with a hint of mint</p>
+                        <div class="item-price">$3.99</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Tomato Restaurant. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Category filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Show/hide menu items based on category
+                    menuItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

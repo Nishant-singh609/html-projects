@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Registration Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #080803;
+        }
+        
+        h1 {
+            color: #f10732;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .form-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+        
+        .btn-submit {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .form-section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>College Registration Form</h1>
+            <p class="description">Register for upcoming recitation sessions and showcase your skills</p>
+        </header>
+        
+        <form id="recitationForm">
+            <div class="form-section">
+                <h2>Student Information</h2>
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name of student*</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="5" max="100">
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender">
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Recitation Details</h2>
+                
+                <div class="form-group">
+                    <label for="recitationType">Type of Recitation *</label>
+                    <select id="recitationType" name="recitationType" required>
+                        <option value="">Select Type</option>
+                        <option value="poetry">Poetry</option>
+                        <option value="quran">Quran</option>
+                        <option value="prose">Prose</option>
+                        <option value="drama">Drama</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pieceTitle">Title of Piece *</label>
+                    <input type="text" id="pieceTitle" name="pieceTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="author">Author/Composer</label>
+                    <input type="text" id="author" name="author">
+                </div>
+                
+                <div class="form-group">
+                    <label for="duration">Estimated Duration (minutes) *</label>
+                    <input type="number" id="duration" name="duration" min="1" max="30" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="language">Language *</label>
+                    <select id="language" name="language" required>
+                        <option value="">Select Language</option>
+                        <option value="english">English</option>
+                        <option value="arabic">Arabic</option>
+                        <option value="urdu">Urdu</option>
+                        <option value="hindi">Hindi</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="specialRequirements">Special Requirements</label>
+                    <textarea id="specialRequirements" name="specialRequirements" rows="3" placeholder="Any special equipment, setup, or other requirements..."></textarea>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Session Preferences</h2>
+                
+                <div class="form-group">
+                    <label for="preferredDate">Preferred Date</label>
+                    <input type="date" id="preferredDate" name="preferredDate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="timeSlot">Preferred Time Slot</label>
+                    <select id="timeSlot" name="timeSlot">
+                        <option value="">Select Time Slot</option>
+                        <option value="morning">Morning (9 AM - 12 PM)</option>
+                        <option value="afternoon">Afternoon (1 PM - 4 PM)</option>
+                        <option value="evening">Evening (5 PM - 8 PM)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Participation Format</label>
+                    <div class="checkbox-group">
+                        <input type="radio" id="inPerson" name="format" value="inPerson" checked>
+                        <label for="inPerson">In-Person</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="radio" id="virtual" name="format" value="virtual">
+                        <label for="virtual">Virtual/Online</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Would you like to receive updates about future events?</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="updates" name="updates" value="yes">
+                        <label for="updates">Yes, please send me updates</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn-submit">Submit Registration</button>
+        </form>
+        
+        <footer>
+            <p>© 2023 Recitation Events. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('recitationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const recitationType = document.getElementById('recitationType').value;
+            const pieceTitle = document.getElementById('pieceTitle').value;
+            const duration = document.getElementById('duration').value;
+            const language = document.getElementById('language').value;
+            
+            if (!fullName || !email || !recitationType || !pieceTitle || !duration || !language) {
+                alert('Please fill in all required fields marked with *');
+                return;
+            }
+            
+            // If validation passes, show success message
+            alert('Thank you for your registration! We will contact you soon with further details.');
+            this.reset();
+        });
+        
+        // Set minimum date to today for the date picker
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('preferredDate').setAttribute('min', today);
+    </script>
+</body>
+</html>
